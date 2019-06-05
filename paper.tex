@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
+\usepackage{float}
 \usepackage[final]{graphicx}
 \usepackage{grffile}
  \geometry{
@@ -36,37 +37,48 @@ In this work we propose the development of a structure for student data manageme
 We present Kratos not as an independent solution to lack of data interoperability, accountability, and privacy but rather as a system that complements existing efforts and solutions developed by the various stakeholders in the educational ecosystem (Data Quality Standards, 2018; Project Unicorn; Bill and Melinda Gates Foundation, 2015).
 
 \section{Existing problems}
-To contextualise the complexity related to school data - the opportunities and challenges schools face as a result of the growing digitisation of operation and academic processes - Kratos has partnered with  Cambridge Public School (CPS) district that administer public elementary and high schools in Cambridge, Massachusetts, the Access for Learning (SIF), and the Student Data Privacy Consortium. With the help of CPS's Information and Communication Technology Services Chief Information Officer and Database Administrator, we explored data interoperability issues with them along with feedback on potential mitigation schemes:
+To contextualise the complexity related to school data - the opportunities and challenges schools face as a result of the growing digitisation of operation and academic processes - Kratos has partnered with  Cambridge Public School (CPS) district that administer public elementary and high schools in Cambridge, Massachusetts, the Access for Learning (SIF), and the Student Data Privacy Consortium. With the help of CPS' Information and Communication Technology Services Chief Information Officer and Database Administrator, we explored data interoperability issues with them along with feedback on potential mitigation schemes:
 
 \begin{itemize}
-  \item Data access - CPS is in agreement with over 100 vendors providing education technologies ([7]). The majority of these would mostly provide no direct and comprehensive access to data generated about and by students who make use of their products or services. Where available, data access is  provided in the form of reports - a summary of information which the district database administrator can request and download. Some providers are even less flexible and only offer to give reports once in 45 days making it impossible for teachers to act on feedback that they might infer from the data. On other occasions vendors supply data directly to teachers as well as the students in the form of digital dashboards. Where teachers obtain data it requires further work to convert it into meaningful information upon which the teacher can adjust and plan instruction (Data Quality Campaign, 2018).
+  \item \textbf{Data access} - CPS is in agreement with over 100 vendors providing education technologies ([7]). A majority of these provide no direct and comprehensive access to data generated about and by students who use of their products. Where available, data access is  provided in the form of reports - a summary of information which the district database administrator can request and download. On other occasions vendors supply data directly to teachers as well as the students in the form of digital dashboards. Where teachers obtain data it requires further work to convert it into meaningful information upon which the teacher can adjust and plan instruction (Data Quality Campaign, 2018).
   
-  \item Lack of data standard compliance - School data frameworks vary across districts and states. Additionally, vendors providing education technologies use different formats, data schema, and elements to organise and store student data as no single standard can be enforced upon them to comply with. Thus, disparate data scattered across different systems with varying degrees of accessibility and usability poses challenges to educators and other stakeholders in the education sector in assessing the impact of education technologies on the learning process. Moreover, lack of data standard compliance further limits the potential for imposing privacy law as is the case with the General Data Protection Regulation (GDPR), which provides sound privacy practices that are, on the one hand, enabled by data interoperability, and on the other, imposing vendors to maintain data transparency.
+  \item \textbf{Lack of data standard compliance} - School data frameworks vary across districts and states. Additionally, vendors providing education technologies use different data formats, schema and elements to organise and store student data as no single standard can be enforced upon them to comply with. Thus, disparate data scattered across different systems with varying degrees of accessibility and usability poses challenges to educators and other stakeholders in the education sector in assessing the impact of education technologies on the learning process. Moreover, the lack of data standard compliance further limits the potential for imposing privacy law as is the case with the General Data Protection Regulation (GDPR), which provides sound privacy practices that are, on the one hand, enabled by data interoperability, and on the other, imposing vendors to maintain data transparency.
   
-  \item Lack of transparency - The scale, complexity, and the number of providers pose challenges for schools to have a comprehensive list of the data that is generated about and by students. Lack of data interoperability standard, which would simply the process of compiling, organising, and documenting what information is generated about students, how this information is used and by whom, makes data auditability difficult, near impossible, to achieve, less so to be useful to the instruction and learning processes. 
+  \item \textbf{Lack of transparency} - The scale, complexity, and number of providers pose challenges for schools to have a comprehensive list of the data that is generated about students. Lack of data interoperability standards which would simply be the process of compiling, organising and documenting what information is generated about students makes data auditability difficult to achieve, less so to be useful to the instruction and learning processes. 
   
-  \item Security - Due to lack of transparency with regards to how various education technology vendors organise and structure their data, it becomes near impossible to understand the security that they ensure for the data their products and services generate. A recent case  presents the fears that exist with regards to school data (Cameron, 2017). Schoolzilla, a K-12 education data service provider, detected a data breach, which exposed the personal data of 1.3 million K-12 students. Some argue (Hand, 2018) that the current available cybersecurity protocols are inefficient to secure student data while at the same time allow its use for analytics without compromising any part of it. Having inadequate access to all available data further limits the potentials to benefit fully from it.
+  \item \textbf{Security} - Due to lack of transparency with regards to how various education technology vendors organise and structure their data, it becomes difficult to understand the security they ensure for the data their products and services generate. A recent case  presents the fears that exist with regards to school data (Cameron, 2017) - Schoolzilla, a K-12 education data service provider, detected a data breach which exposed the personal data of 1.3 million K-12 students. Some argue (Hand, 2018) that currently available cybersecurity protocols are inefficient to secure student data while at the same time allowing data analytics. Having inadequate access to available data further limits potentials to fully benefit from it.
   
 \end{itemize}
 
-We can thus see that schools are finding it increasingly difficult to obtain data about their own students and are becoming isolated due to a lack of knowledge on how vendors are processing this data.
+We thus infer that schools are finding it increasingly difficult to obtain data about their own students and are becoming isolated due to a lack of knowledge on how vendors are processing this data.
 
 \section{The need for a solution}
 
-Interoperability challenges between vendors and schools at local, district, state, or federal level further pose barriers not only to cohesive data management and sharing but also lacks technological privacy infrastructure and accountability [Zeide, 2014; Common Sense Media Research, 2018]. While digitizing and collecting student data is not new [Fitzgerald, 2014], technological developments like cloud computing and the growing use of web applications, learning management systems that gather fine-grained student data, amplify the concerns about data transfer, storage, use, and analysis [Sultan, 2010].
+Interoperability challenges between vendors and schools at local, district, state, or federal level pose barriers to cohesive data management and sharing while lacking basic technological privacy infrastructure and accountability [Zeide, 2014; Common Sense Media Research, 2018]. While digitizing and collecting student data is not new [Fitzgerald, 2014], technological developments like cloud computing and the Internet of Things (IoT) amplify concerns about data transfer, storage, use, and analysis [Sultan, 2010].
 \bigbreak
-Concerns about the over-prevalence of fine-grained data collected about students [Zeide, 2017] and the risk of creating a 'permanent record' that can impede upon learners' futures [Cody, 2013] arise. The use of online platforms and applications in schools often provided by for-profit vendors, many of whom have unclear policies about data privacy and third-party sharing [Common Sense Education, 2018], generates continuous stream of data about students' behavior and performance at an unprecedented scale [Zeide, 2017]. Big data complicates traditional understanding of what constitutes sensitive information and what information serves an educational purpose. Data however, continues to drive decision-making of practitioners and vendors, marginalizing student dimensions of learning and equitable participation in curriculum design.
+Concerns arise about over-prevalence of fine-grained data collected about students [Zeide, 2017] and the risk of creating a 'permanent record' that can impede upon learners' futures [Cody, 2013]. The use of online platforms and applications in schools, often provided by for-profit vendors many of whom have unclear policies about data privacy [Common Sense Education, 2018], generates a continuous stream of data about students' behavior and performance at an unprecedented scale [Zeide, 2017]. Big data complicates traditional understanding of what constitutes sensitive information and what information serves an educational purpose. Such data however, continues to drive decision-making of practitioners and vendors, marginalizing student dimensions of learning and equitable participation in curriculum design.
 \bigbreak
-The present challenges of fragmented data access and use, lack of student agency, accountability, and auditability to data access and use demand a socio-technological solution, one which can ensure that educational data can be used to help improve school processes while student privacy, agency and future opportunities are not diminished.
-\section{Kratos}
-Kratos aims to define a set of principles and guidelines that schools should follow and provides a platform for both schools and students to see what kind of data is being collected by vendors along with ways to ensure that there is an immutable log and auditability for student data changes, access, and use. The goal for students would be to see how their data is being used and above the age of 18, gain access to this data. We define this as Data Ownership and Visibility - how students can own the data after the age of 18 and how students can see what their data is being used for. The goal for the school would be to make disparate data from different vendors compatible with each other and we define this problem as Data Interoperability.
+The present challenges of fragmented data access, the lack of student agency and auditability and the lack of a concrete framework for data accessibility demand a socio-technological solution which can ensure that educational data can be used to help improve school processes while not diminishing student privacy, agency and future opportunities.
 
-\textbf{INSERT KRATOS.JPG HERE}
+\section{Kratos}
+Kratos aims to define a set of guidelines and principles that schools should follow and provides a platform for both schools and students to see what kind of data is being collected by vendors with the help of an immutable log for auditing student data changes, access, and use. The goal for students would be to see how their data is being used and above the age of 18, gain access to this data. We define this as Data Ownership and Visibility - how students can own the data after the age of 18 and how students can see what their data is being used for. The goal for the school would be to make disparate data from different vendors compatible with each other and we define this problem as Data Interoperability.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{{"images/Kratos.jpg}}
+    \caption{Kratos Architecture}
+    \label{fig:my_label}
+\end{figure}
 
 \subsection{Data Interoperability}
 A traditional approach to interoperability would be to force a given set of standards on third party vendors, so that they reference them. However, work done by standardization bodies like SIF and CEDS has shown that this is at best partially effective since there is no financial or social incentive for vendors to migrate to the proposed set of standards. Kratos attempts to solve this issue by proposing a solution where different fields described by different vendors can be mapped to a single underlying scheme defined by Kratos and third party vendors would not have to worry about using disparate fields.
 
-\textbf{INSERT DATA ARCHITECTURE.JPG HERE}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{{"images/data-architecture.jpg}}
+    \caption{Data Architecture}
+    \label{fig:my_label}
+\end{figure}
 
 \bigbreak
 As an example, let us assume the underlying fields defined by Kratos are Grade\_A, Grade\_B and Grade\_C. If a specific vendor has a different name for the same field (example GradeA, GradeB and GradeC), Kratos would ingest the data from the vendor defined fields and convert it to the ones defined by Kratos. This should be done across different formats since the reports database administrators receive right now are formatted as JSON, CSV or are in the form of Excel sheets.
@@ -88,13 +100,13 @@ In conventional systems, data control or 'ownership' can be proved with the help
 \bigbreak
 The aim of using a cryptographic hash like SHA-3 \hyperref[sec:6]{[6]} is to ensure a uniquely random reference to the data to avoid out-of-channel data leaks. Kratos suggests using an element of randomness like a salt to generate the hash in order to have the ability to revoke tokens by regenerating randomness. Kratos enforces that all schools encrypt their data before creating access tokens to mitigate the risk of loss/theft of data. Past studies like \hyperref[sec:4]{[4]} and \hyperref[sec:5]{[5]} show that firms are willing to circumnavigate laws to collect data and encrypting data by design ensures that no third party can have access without being granted so explicitly.
 \bigbreak
-Kratos does not specify at which level data needs to be encrypted - it can be at the school level or at the student level depending on existing frameworks and rules surrounding the school. If the school chooses to encrypt student data on behalf of the student, Kratos enforces that the school use a unique key for each individual to minimize the risk of key theft. In addition to this, Kratos suggests that schools store their encrypted data in a distributed file storage system like IPFS to ensure data redundancy and availability in case of a setback. Storing data on IPFS also makes it easier to create timestamps since it is sufficient to reference the IPFS pointer instead of potentially hashing the whole data.
+Kratos suggests that encryption be done at the student level but this can also be at the school level depending on existing frameworks and rules surrounding the school. If the school chooses to encrypt student data on behalf of the student, Kratos enforces that the school use a unique key for each individual to minimize the risk of key theft. In addition to this, Kratos suggests that schools store their encrypted data in a distributed file storage system like IPFS to ensure data redundancy and availability in case of a setback. Storing data on IPFS also makes it easier to create timestamps since it is sufficient to reference the IPFS pointer instead of potentially hashing the whole data.
 \bigbreak
-In the event a user wants to revoke access to a particular vendor, he could do so by changing the encryption key or by changing the randomness used to generate the access token. We suggest users do not regenerate encryption keys but Kratos does not enforce this and will provide end users with the option to choose between the two.
+In the event a user wants to revoke access to a particular vendor, he could do so by changing the encryption key or by changing the randomness used to generate the access token. We suggest users do not regenerate encryption keys but Kratos will provide users an option to choose between the two.
 \bigbreak
 Since schools have their own sets of policies, Kratos does not strictly enforce a set of practices for users to follow. This ensures that adoption of Kratos is not constrained by a certain set of rules. At the same time, Kratos defines a set of minimum requirements to be on board to ensure good practices on data protection are followed.
 \bigbreak
-Kratos also does not specify how and where the commitments need to be stored and leaves it to schools to provide their feedback. Potential solutions include a centralized time-stamping server, a permissioned blockchain with the different schools as the nodes and simple time-stamping commitments to an existing blockchain. All three options have their benefits and constraints and Kratos would arrive at a final recommendation depending on what schools support best.
+Kratos also does not enforce how commitments need to be generated and stored, leaving it as an option for schools to provide their feedback on. Solutions provided by Kratos would include a centralized time-stamping server, a permissioned blockchain with the different schools as the nodes and simple time-stamping commitments to an existing blockchain. All three have their benefits and constraints and Kratos would enable schools to customize this to their requirements.
 \bigbreak
 
 \subsection{Student agency and participation}
@@ -104,23 +116,62 @@ While summative and cumulative assessments provide "empirically observed specifi
 \bigbreak
 Our prototype provides a graphical interface for student involvement in and accessibility to school data. While students and equally their parents can become acquainted with any changes and meanings of school data, students can also participate with personal feedback to the learning process. Student participation with personal perspectives and reflection are integral to the learning process (Ackermann, 1996). Some reflection is invariably carried out through questionnaire surveys examining school climate (Holahan and Batey, 2019). Both school climate surveys and the proposed student feedback application provide flexible selection of questionnaires and measurements with a common goal to improve school climate. However, the proposed application enables not only feedback from older students (Ibid.) but from all students, provided that the feedback addresses the goal to encourage perspective-taking and reflection that are deemed necessary to the learning process (Kegan, 1982). The application further enables student agency and control over the frequency, depth, and nature of the feedback provided that it directly reflects the learning experience.
 
+\begin{figure}[H]
+    \centering
+      \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[width=5cm]{{"images/home.png}}
+    \caption{Data Information}
+    \label{fig:my_label}
+    \end{minipage}
+    \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[width=5cm]{{"images/summary.png}}
+    \caption{Detailed info about fields}
+    \label{fig:my_label}
+    \end{minipage}
+\end{figure}
+
 \subsection{Data literacy}
 Data literacy is the ability to understand, create, and communicate data as information. Beyond that, in increasingly data-driven systems it becomes imperative not only to understand data but to interact with it and participate in the decision-making processes that it increasingly begins to impact. While data provides insight about how systems operate, the inferences drawn from it is without context. Fine-grained data collected over long periods of time can lead to negative impact on individual well-being and pose limitations over future opportunities [Gasser et al., 2018]. The growing digitization of schools create learning environments that enable constant data generation, the access to and use of which becomes hard to control, audit, and account for. The risk of digitized school environments constantly generating data and algorithmic assessments becoming permanent record that at any one point in time may limit individual opportunities leads us to prioritise on developing a socio-technological solution that enables applied data literacy for students at a young age. \textit{a note on Parents for Privacy Consortium and Data Quality Standards who make such efforts to educate students and parents about school data and that we (Kratos) complement these efforts.}
 
+\begin{figure}[H]
+    \centering
+      \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[height=9.5cm]{{"images/data-detail-1.png}}
+    \caption{Data Information}
+    \label{fig:my_label}
+    \end{minipage}
+      \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[height=9.5cm]{{"images/data-detail-2.png}}
+    \caption{Detailed info about fields}
+    \label{fig:my_label}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+      \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[height=9.5cm]{{"images/detail.png}}
+    \caption{Permit / Revoke Access}
+    \label{Permit / Revoke Access}
+    \end{minipage}
+      \begin{minipage}[b]{0.4\textwidth}
+    \includegraphics[height=9.5cm]{{"images/feedback-1.png}}
+    \caption{Feedback}
+    \label{fig:my_label}
+    \end{minipage}
+\end{figure}
+
 \section{Discussion and future work}
-In this paper we propose Kratos, a decentralised data management system, which enables data interoperability, student agency, applied data literacy, and student participation in the curriculum design. This proposal envisions an ideal techno-social solution that empowers the individual student by providing more control over their school data through data transparency, accountability, and auditability. At the same time, continuous legal (GDPR, 2016; Colorado Student Data Transparency and Security Act, 2016; Kelly, 2019) and policy (Student Data Privacy Consortium, 2018) efforts are being made in the right direction that will further help establish Kratos as a tool integral to the school ecosystem. 
+In this paper we propose Kratos, a decentralised data management system which enables data interoperability, applied data literacy, and student participation in the curriculum design. This proposal envisions an ideal techno-social solution that empowers students by providing more control over their school data through data transparency, accountability and auditability. At the same time, continuous legal (GDPR, 2016; Colorado Student Data Transparency and Security Act, 2016; Kelly, 2019) and policy (Student Data Privacy Consortium, 2018) efforts are being made that will further help establish Kratos as a tool integral to the school ecosystem.
+\bigbreak
+Unlike other sectors such as retail (Lu and Xu, 2017), finance (Ito et al., 2017), and medicine (Acbo et al., 2019), education is still not fully leveraging the power of global digital transformation. In medicine, for instance, data interoperability is important in order for various stakeholders to access comprehensive patient records and decentralised technologies have been used to enable such access while prioritising patient agency, privacy and security (Acbo et al., 2019). 
+\bigbreak
+On the other hand, while data analytics provides insight about school processes, not everything that is measured is meaningful. Students’ perspectives and reflection should equally count next to data-driven decision-making. Moreover, the sophistication of data analytics and long-term data collection further decrease an individual's privacy. The risk of being publicly exposed can lead to being embarrassed or discriminated (Altman et al. 2018). Constantly being aware of such risks can diminish one’s sense of freedom for self-expression and in the case with children and young people - the freedom to try out new things and make mistakes. Therefore, a decentralised data management system that prioritises student privacy and control over data, becomes crucial to the development of a safe and free learning environment.
+\bigbreak
+Future work includes three distinctive steps. First, we plan to develop a comprehensive taxonomy of school data. This will serve to develop a comprehensive data vocabulary for applied data literacy and identify data elements. The second step involves prototyping and formalising platform sections and functionality. And the third involves carrying out user studies to get student feedback and the fine tuning of the platform's user interface.
 
-To leverage decentralisation of a large scale data management system, Kratos shows that as learning analytics are crucial for educators to improve on instruction and pedagogy, the platform prioritises student agency, privacy, and control over their data.  
-
-Unlike other sectors such as retail (Lu and Xu, 2017), finance (Ito et al., 2017), and medicine (Acbo et al., 2019), education is still not fully leveraging from the digital transformation it is undergoing. In medicine, for instance, while data interoperability is important in order for various stakeholders to access comprehensive patient records, decentralised technologies have been used to enable such access while prioritising patient agency, privacy, and security (Agbo et al., 2019). 
-
-On the other hand, while data analytics provide insight about school processes, not everything that is measured is meaningful just as not everything meaningful can be given a numeric value. Students’ perspectives and reflection should equally count next to data-driven decision-making. Moreover, the sophistication of data analytics and long-term data collections further increase the risks of individual privacy. The risk of being publicly exposed can lead to the risk of being embarrassed or discriminated (Altman et al. 2018). Being aware of such risks can diminish one’s sense of freedom for self-expression and in the case with children and young people - the freedom to simply try things out and make mistakes. Therefore, a decentralised data management system that prioritises student agency, privacy, and control over data, becomes crucial to the development of a safe space in which learners can learn and voice their perspectives without fear. 
-
-Future work includes three distinctive steps. First, we plan to develop a comprehensive taxonomy of school data. This will serve to develop a comprehensive data vocabulary for applied data literacy and identify data elements. The second step involves developing prototype and formalising platform sections and functionality. And step three involves carrying out user studies to examine student experience, develop and fine-tune UI. 
-
-
-\section{Acknowledgement}
-We thank Cambridge Public School district, Student Data Privacy Consortium, Acess for Learning (SIF) for their support. We thank Rayner Ng Jing Kai from Yale OpenLab (NUS) for the mockup designs, Mario Galea from  Geoffrey?
+\section{Acknowledgements}
+We thank Cambridge Public School district, Student Data Privacy Consortium, Acess for Learning (SIF) for their support. We would also like to thank Rayner Ng Jing Kai and Goeffrey Martin from Yale-NUS College for their help in designing mockup designs and giving feedback on data interoperability.
 
 \section{References}
 \begin{enumerate}
@@ -165,11 +216,6 @@ We thank Cambridge Public School district, Student Data Privacy Consortium, Aces
     \item Kelly, M. (2019). New privacy bill would give parents an ‘Eraser Button’ and ban ads targeting children. \textit{The Verge}, March 12.
 
 \end{enumerate}
-\begin{figure}
-    \centering
-    \includegraphics[width=15cm]{{"images/Kratos.jpg}}
-    \caption{Kratos Architecture}
-    \label{fig:my_label}
-\end{figure}
+
 \end{document}
     
